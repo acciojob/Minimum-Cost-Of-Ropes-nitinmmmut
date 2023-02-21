@@ -14,4 +14,3 @@ function minCost(event) {
 	}
 	document.querySelector("div").textContent=cost;
 }
-0 comments on commit e1be755
