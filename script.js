@@ -1,25 +1,20 @@
 function calculateMinCost() {
   //your code here
-	const form=document.getElementById("form");
-form.addEventListener("submit",function(event){
+	function minCost(event) {
 	event.preventDefault();
-	var inputValue=document.querySelector("input").value;
-	var arr=inputValue.split(",");
-	arr.sort(function(a,b){
-		return a-b;
-	})
+	var input = document.querySelector("input").value;
+	var arr = input.split(",");
 	var cost=0;
-while(arr.length>1){
-	var res=Number(arr[0])+Number(arr[1]);
-	arr.splice(0,2);
-	arr.push(res);
-	cost+=res;
-	arr.sort(function(a,b){
-		return a-b;
-	});
+	while(arr.length > 1){
+		arr.sort(function (a,b) {return a-b});
+		var temp=Number(arr[0]) + Number(arr[1]);
+		cost+=temp;
+		arr.push(temp);
+		arr.splice(0,2);
+		arr.sort(function (a,b) {return a-b});
+		
+	}
+	document.querySelector("div").textContent=cost;
 }
-	document.getElementById("result").textContent=cost;
-})
   
-  
-}  
+ 
